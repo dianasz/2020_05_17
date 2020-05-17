@@ -1,9 +1,5 @@
 package pl.javastart.sellegro.auction;
 
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 public class AuctionFilters {
     private String title;
     private String carMaker;

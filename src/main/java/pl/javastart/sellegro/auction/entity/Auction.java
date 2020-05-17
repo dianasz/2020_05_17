@@ -1,7 +1,4 @@
-package pl.javastart.sellegro.auction;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
+package pl.javastart.sellegro.auction.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;

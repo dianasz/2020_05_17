@@ -5,8 +5,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import pl.javastart.sellegro.auction.Auction;
-import pl.javastart.sellegro.auction.AuctionRepository;
+import pl.javastart.sellegro.auction.entity.Auction;
+import pl.javastart.sellegro.auction.repository.AuctionRepository;
 
 import java.util.List;
 

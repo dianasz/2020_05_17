@@ -1,26 +1,26 @@
 package pl.javastart.sellegro.auction;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
 public class Auction {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
-    private String carMake;
+    private String carMaker;
     private String carModel;
     private String color;
     private BigDecimal price;
     private LocalDate endDate;
 
-    public Auction(Long id, String title, String carMake, String carModel, String color, BigDecimal price, LocalDate endDate) {
-        this.id = id;
-        this.title = title;
-        this.carMake = carMake;
-        this.carModel = carModel;
-        this.color = color;
-        this.price = price;
-        this.endDate = endDate;
+    public Auction() {
     }
 
     public Long getId() {
@@ -39,12 +39,12 @@ public class Auction {
         this.title = title;
     }
 
-    public String getCarMake() {
-        return carMake;
+    public String getCarMaker() {
+        return carMaker;
     }
 
-    public void setCarMake(String carMake) {
-        this.carMake = carMake;
+    public void setCarMaker(String carMake) {
+        this.carMaker = carMake;
     }
 
     public String getCarModel() {

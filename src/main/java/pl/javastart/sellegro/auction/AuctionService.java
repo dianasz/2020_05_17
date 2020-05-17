@@ -39,13 +39,11 @@ public class AuctionService {
     }
 
     public List<Auction> findAll() {
-        auctions = auctionRepository.findAll();
-        return auctions;
+        return auctionRepository.findAll();
     }
 
     public List<Auction> findAllForFilters(AuctionFilters auctionFilters) {
-        auctions = auctionRepository.filtered(auctionFilters.getTitle(), auctionFilters.getCarMaker(),
+        return auctionRepository.filtered(auctionFilters.getTitle(), auctionFilters.getCarMaker(),
                 auctionFilters.getCarModel(), auctionFilters.getColor());
-        return auctions;
     }
 }

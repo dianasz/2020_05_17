@@ -33,6 +33,7 @@ public class AuctionService {
                 break;
             default:
                 auctions = auctionRepository.findAll();
+                break;
         }
         return auctions;
     }

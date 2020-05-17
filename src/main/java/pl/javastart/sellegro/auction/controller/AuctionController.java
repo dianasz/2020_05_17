@@ -26,7 +26,6 @@ public class AuctionController {
         List<Auction> auctions;
         if (sort != null) {
             auctions = auctionService.findAllSorted(sort);
-
         } else if (auctionFilters.getTitle() == null) {
             auctions = auctionService.findAll();
         } else {

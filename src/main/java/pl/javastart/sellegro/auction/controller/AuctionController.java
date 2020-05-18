@@ -24,7 +24,6 @@ public class AuctionController {
                            @RequestParam(required = false) String sort,
                            AuctionFilters auctionFilters) {
         List<Auction> auctions;
-        auctionService.updateTitles();
 
         if (sort != null) {
             auctions = auctionService.findAllSorted(sort);

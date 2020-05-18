@@ -8,8 +8,7 @@
     <h1 style="text-align: center" class="mt-4">NAJLEPSZE OFERTY</h1>
 
     <div th:each="car: ${cars}">
-        <h2 th:text="${car.carMaker}"></h2>
-        <h3 th:text="${car.carModel}"></h3>
+        <h2 th:text="${car.title}"></h2>
         <p th:text="|Cena: ${car.price} zł|"></p>
     </div>
 

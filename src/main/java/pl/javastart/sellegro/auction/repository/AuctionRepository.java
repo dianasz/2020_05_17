@@ -27,6 +27,11 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
     @Query("UPDATE Auction a SET a.title = concat('Wyjątkowy ', a.carMaker, ' ', a.carModel) where a.color='Aquamarine'")
     void updateTitleForAquamarine();
 
+    @Transactional
+    @Modifying
+    @Query("UPDATE Auction a SET a.title = concat('Jedyny w swoim rodzaju ', a.carMaker, ' ', a.carModel) where a.color='Orange'")
+    void updateTitleForOrange();
+
     List<Auction> findAllByOrderByPriceDesc(Pageable pageable);
 
     List<Auction> findAllByOrderByTitle();
@@ -42,9 +47,9 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
             " and lower(a.carMaker) LIKE lower(concat('%', :carMake, '%'))" +
             " and lower(a.carModel) LIKE lower(concat('%', :carModel, '%'))" +
             " and lower(a.color) LIKE lower(concat('%', :color, '%'))")
-    List<Auction> filtered(@Param("title") String title,
-                           @Param("carMake") String carMake,
-                           @Param("carModel") String carModel,
-                           @Param("color") String color);
+    List<Auction> findByAllAttributes(@Param("title") String title,
+                                      @Param("carMake") String carMake,
+                                      @Param("carModel") String carModel,
+                                      @Param("color") String color);
 
 }

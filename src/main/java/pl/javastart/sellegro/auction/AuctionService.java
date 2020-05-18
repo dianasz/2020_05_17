@@ -15,11 +15,13 @@ public class AuctionService {
     public AuctionService(AuctionRepository auctionRepository) {
         this.auctionRepository = auctionRepository;
         auctionRepository.createTitle();
+        updateTitles();
     }
 
     public void updateTitles(){
         auctionRepository.updateTitleForPink();
         auctionRepository.updateTitleForAquamarine();
+        auctionRepository.updateTitleForOrange();
     }
 
     public List<Auction> findAllSorted(String sort) {
@@ -48,7 +50,7 @@ public class AuctionService {
     }
 
     public List<Auction> findAllForFilters(AuctionFilters auctionFilters) {
-        return auctionRepository.filtered(auctionFilters.getTitle(), auctionFilters.getCarMaker(),
+        return auctionRepository.findByAllAttributes(auctionFilters.getTitle(), auctionFilters.getCarMaker(),
                 auctionFilters.getCarModel(), auctionFilters.getColor());
     }
 }

@@ -15,7 +15,17 @@ public interface AuctionRepository extends JpaRepository<Auction, Long> {
     @Transactional
     @Modifying
     @Query("UPDATE Auction a SET a.title = concat(a.carMaker, ' ', a.carModel)")
-    void updateTitle();
+    void createTitle();
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Auction a SET a.title = concat('Perełka ', a.carMaker, ' ', a.carModel) where a.color='Pink'")
+    void updateTitleForPink();
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Auction a SET a.title = concat('Wyjątkowy ', a.carMaker, ' ', a.carModel) where a.color='Aquamarine'")
+    void updateTitleForAquamarine();
 
     List<Auction> findAllByOrderByPriceDesc(Pageable pageable);
 

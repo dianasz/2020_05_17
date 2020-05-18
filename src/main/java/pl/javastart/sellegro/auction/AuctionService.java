@@ -14,7 +14,12 @@ public class AuctionService {
 
     public AuctionService(AuctionRepository auctionRepository) {
         this.auctionRepository = auctionRepository;
-        auctionRepository.updateTitle();
+        auctionRepository.createTitle();
+    }
+
+    public void updateTitles(){
+        auctionRepository.updateTitleForPink();
+        auctionRepository.updateTitleForAquamarine();
     }
 
     public List<Auction> findAllSorted(String sort) {
